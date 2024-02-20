@@ -1,0 +1,27 @@
+﻿@page "/"
+
+@using Blazor.Canvas.Components
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await DrawRect())">Draw Rect</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await DrawImage())">Draw Image</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await Clear())">Clear</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await DrawLinearGradient())">Draw Linear Gradient</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await DrawRadialGradient())">Draw Radial Gradient</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await DrawConicGradient())">Draw Conic Gradient</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await FillRect())">Fill Rect</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await StrokeRect())">Stroke Rect</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await FillText())">Fill Text</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await ToDataURL())">To DataUrl</button>
+<br/>
+<BlazorCanvas @ref="Canvas" InitialWidth="600" InitialHeight="600" Id="testCanvas" style="border: 1px solid black;"
+  OnMouseDown="OnMouseDown" OnMouseUp="OnMouseUp" OnMouseMove="OnMouseMove" OnMouseOut="OnMouseOut" OnMouseOver="OnMouseOver"
+              OnMouseWheel="OnMouseWheel" OnClick="OnClick" OnDoubleClick="OnDoubleClick" OnBlur="OnBlur" OnScroll="OnScroll"
+              OnKeyDown="OnKeyDown" OnKeyPress="OnKeyPress" OnKeyUp="OnKeyUp" OnWheel="OnWheel" OnContextMenu="OnContextMenu"
+              OnTouchStart="OnTouchStart" OnTouchMove="OnTouchMove" OnTouchEnd="OnTouchEnd" OnAuxClick="OnAuxClick"
+              OnFocus="OnFocus" OnFocusIn="OnFocusIn" OnFocusOut="OnFocusOut" OnScrollEnd="OnScrollEnd" />

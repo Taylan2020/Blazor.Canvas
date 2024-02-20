@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{FB2B66A8-0EA5-42F3-AAB5-C5307E30A1D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor.Canvas", "Blazor.Canvas", "{AB01D181-2599-405B-B21E-022816450980}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Canvas", "Source\Blazor.Canvas\Blazor.Canvas.csproj", "{86454F32-98FE-4448-AFE5-3CC00B9D31EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{A11603DD-886B-465F-B393-A52CB1C5C5B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Canvas.WASM", "Example\Blazor.Canvas.WASM\Blazor.Canvas.WASM.csproj", "{EECEB631-33BC-4C26-8EDA-D6D3BC435444}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Canvas.WASM.Client", "Example\Blazor.Canvas.WASM.Client\Blazor.Canvas.WASM.Client.csproj", "{CD885621-13E3-488F-A71A-3D02BDD3E02F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Canvas.WASM.Shared", "Example\Blazor.Canvas.WASM.Shared\Blazor.Canvas.WASM.Shared.csproj", "{FA1B8201-EE89-4597-901A-A6623FCA5406}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86454F32-98FE-4448-AFE5-3CC00B9D31EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86454F32-98FE-4448-AFE5-3CC00B9D31EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86454F32-98FE-4448-AFE5-3CC00B9D31EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86454F32-98FE-4448-AFE5-3CC00B9D31EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EECEB631-33BC-4C26-8EDA-D6D3BC435444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EECEB631-33BC-4C26-8EDA-D6D3BC435444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EECEB631-33BC-4C26-8EDA-D6D3BC435444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EECEB631-33BC-4C26-8EDA-D6D3BC435444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD885621-13E3-488F-A71A-3D02BDD3E02F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD885621-13E3-488F-A71A-3D02BDD3E02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD885621-13E3-488F-A71A-3D02BDD3E02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD885621-13E3-488F-A71A-3D02BDD3E02F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA1B8201-EE89-4597-901A-A6623FCA5406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA1B8201-EE89-4597-901A-A6623FCA5406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA1B8201-EE89-4597-901A-A6623FCA5406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA1B8201-EE89-4597-901A-A6623FCA5406}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB01D181-2599-405B-B21E-022816450980} = {FB2B66A8-0EA5-42F3-AAB5-C5307E30A1D3}
+		{86454F32-98FE-4448-AFE5-3CC00B9D31EB} = {AB01D181-2599-405B-B21E-022816450980}
+		{EECEB631-33BC-4C26-8EDA-D6D3BC435444} = {A11603DD-886B-465F-B393-A52CB1C5C5B8}
+		{CD885621-13E3-488F-A71A-3D02BDD3E02F} = {A11603DD-886B-465F-B393-A52CB1C5C5B8}
+		{FA1B8201-EE89-4597-901A-A6623FCA5406} = {A11603DD-886B-465F-B393-A52CB1C5C5B8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B345EBAD-1D20-4779-A2AF-7641ADD9D6F3}
+	EndGlobalSection
+EndGlobal
