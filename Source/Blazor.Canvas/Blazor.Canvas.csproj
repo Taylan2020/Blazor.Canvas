@@ -21,8 +21,8 @@
     <Authors>Taylan Acil</Authors>    
     <Copyright>Copyright 2024 Blazor.Canvas</Copyright>
     <PackageTags>Blazor, Blazor Canvas, Blazor.Canvas, Blazor Canvas Graphics, Blazor Canvas Element, Blazoe Drawing, Blazor Library, Rendering Context, Blazor Canvas API, Blazor Canvas Renderer, Blazor Canvas Rendering, Blazor Canvas Wrapper, Blazor Canvas Rendering Wrapper, Canvas, Canvas 2D, Canvas API, Canvas Renderer, Canvas Rendering, Canvas Renderer 2D, Canvas Rendering 2D,  CanvasRenderingContext2D, Canvas Rendering, Canvas Graphics, HTML5, HTML5 Canvas, Rendering Context</PackageTags>
-    <Version>2.0</Version>
-    <PackageVersion>2.0</PackageVersion>
+    <Version>2.1</Version>
+    <PackageVersion>2.1</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>
