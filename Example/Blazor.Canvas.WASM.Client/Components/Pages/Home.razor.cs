@@ -1,11 +1,8 @@
 ﻿using Blazor.Canvas.Components;
-using Blazor.Canvas.Models;
 using Blazor.Canvas.Models.Gradient;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
-using System.Drawing;
-using System.Net.Http;
 
 namespace Blazor.Canvas.WASM.Client.Components.Pages;
 
