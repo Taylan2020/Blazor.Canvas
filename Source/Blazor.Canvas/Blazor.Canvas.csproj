@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFrameworks>net8.0</TargetFrameworks>
@@ -6,6 +6,23 @@
     <Nullable>enable</Nullable>
     <LangVersion>Latest</LangVersion>
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>    
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/Taylan2020/Blazor.Canvas</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Taylan2020/Blazor.Canvas</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Title>Blazor.Canvas</Title>
+    <Description>Blazor.Canvas is a Blazor wrapper for HTML Canvas Graphics</Description>
+    <Company>Taylan Acil</Company>
+    <Authors>Taylan Acil</Authors>    
+    <Copyright>Copyright 2024 Blazor.Canvas</Copyright>
+    <PackageTags>Blazor, Blazor Canvas, Blazor.Canvas, Blazor Canvas Graphics, Blazor Canvas Element, Blazoe Drawing, Blazor Library, Rendering Context, Blazor Canvas API, Blazor Canvas Renderer, Blazor Canvas Rendering, Blazor Canvas Wrapper, Blazor Canvas Rendering Wrapper, Canvas, Canvas 2D, Canvas API, Canvas Renderer, Canvas Rendering, Canvas Renderer 2D, Canvas Rendering 2D,  CanvasRenderingContext2D, Canvas Rendering, Canvas Graphics, HTML5, HTML5 Canvas, Rendering Context</PackageTags>
+    <Version>2.0</Version>
+    <PackageVersion>2.0</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -20,6 +37,7 @@
     <TrimMode>link</TrimMode>
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
   
   <ItemGroup>
