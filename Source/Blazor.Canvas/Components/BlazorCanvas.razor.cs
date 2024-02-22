@@ -9,6 +9,7 @@ using LineJoin = Blazor.Canvas.Models.LineJoin;
 using Blazor.Canvas.Models.Gradient;
 using Microsoft.AspNetCore.Components.Web;
 using Blazor.Canvas.Data;
+using Blazor.Canvas.Models.DOM;
 
 namespace Blazor.Canvas.Components;
 
@@ -283,6 +284,12 @@ public partial class BlazorCanvas
 
         return await _JS.InvokeAsync<string>($"{INTEROP_NAMES.CANVAS_Element}.{nameof(ToDataURL).ToCamelCase()}", type, encoderOptions);
     }
+    /// <summary>
+    /// Returns a DOMRect object providing information about the size of the canvas and its position relative to the viewport.
+    /// </summary>
+    /// <returns></returns>
+    public async Task<DOMRect> GetBoundingClientRect()
+    => await _JS.InvokeAsync<DOMRect>($"{INTEROP_NAMES.CANVAS_MANAGER}.{nameof(GetBoundingClientRect)}");
     #endregion
 
     #region CanvasRenderingContext
