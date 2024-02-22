@@ -58,7 +58,20 @@ class BlazorCanvasManager {
 
         return model;
     }
+    GetBoundingClientRect() {
+        let boundingClientRect = this.Canvas.getBoundingClientRect();
 
+        return {
+            X: boundingClientRect.x,
+            Y: boundingClientRect.y,
+            Width: boundingClientRect.width,
+            Height: boundingClientRect.height,
+            Top: boundingClientRect.top,
+            Right: boundingClientRect.right,
+            Bottom: boundingClientRect.bottom,
+            Left: boundingClientRect.left
+        };
+    }
     /**
      * 
      * @param {string} color
@@ -202,7 +215,7 @@ function GetPropertyOwner(propertyString) {
 function SetProperty(name, value) {
     let parts = name.split(".");
 
-    for (var i = 0, len = parts.length, obj = window; i < len-1; ++i) {
+    for (var i = 0, len = parts.length, obj = window; i < len - 1; ++i) {
         obj = obj[parts[i]];
     }
 
