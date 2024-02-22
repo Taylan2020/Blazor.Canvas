@@ -3,11 +3,11 @@
 ## Installation
 Package Manager
 ```
-Install-Package Blazor.Canvas -Version 2.1
+Install-Package Blazor.Canvas -Version 2.2
 ```
 or .net CLI
 ```
-dotnet add package Blazor.Canvas --version 2.1
+dotnet add package Blazor.Canvas --version 2.2
 ```
 ### Javascript
 Embed JS-file to the body section of your page
@@ -40,7 +40,6 @@ and initialize the library after your component has rendered.
       if (firstRender)
       {
           await Canvas.Initialize(_JS);
-          IsButtonDisabled = false;
           StateHasChanged();
       }
   
@@ -78,9 +77,16 @@ and initialize the library after your component has rendered.
         await Canvas.DrawImage("https://i.stack.imgur.com/UFBxY.png", 100, 100, 50, 50);
         await Canvas.SetFillStyle("orange");
         await Canvas.FillRect(50,50,160,160);
+        
         var rad = new RadialGradient(110, 90, 30, 100, 100, 70, new() { new(0f, "pink"), new(0.9f, "white"), new(1f, "green") });
         await Canvas.SetFillStyle(rad);
         await Canvas.FillRect(20,20,160,160);
+        
+        await Canvas.SetFont("bold 48px serif");
+        await Canvas.SetTextAlign(TextAlign.Center);
+        await Canvas.SetStrokeStyle("red");
+        await Canvas.StrokeText("Hello World", 50, 100);
+
         int currentWidth = Canvas.Width;
         int currentHeight = Canvas.Height;
 ```
