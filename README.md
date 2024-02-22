@@ -118,17 +118,17 @@ and initialize the library after your component has rendered.
 
 
 #### CanvasElement Methods 
-`public async Task<DOMRect> ChangeCanvasWidth(int width)`
+`public async Task ChangeCanvasWidth(int width)`
 
-`public async Task<DOMRect> ChangeCanvasHeight(int height)`
+`public async Task ChangeCanvasHeight(int height)`
 
-`public async Task<DOMRect> ChangeCanvasSize(int height, int width)`
+`public async Task ChangeCanvasSize(int height, int width)`
 
-`public async Task<DOMRect> ToDataURL()`
+`public async Task<string> ToDataURL()`
 
-`public async Task<DOMRect> ToDataURL(string type = "image/png")`
+`public async Task<string> ToDataURL(string type = "image/png")`
 
-`public async Task<DOMRect> ToDataURL(string type = "image/png", float encoderOptions = 1.0f)`
+`public async Task<string> ToDataURL(string type = "image/png", float encoderOptions = 1.0f)`
 
 `public async Task<DOMRect> GetBoundingClientRect()`
 
