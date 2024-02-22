@@ -116,6 +116,23 @@ and initialize the library after your component has rendered.
 
 `Task Initialize()`
 
+
+#### CanvasElement Methods 
+`public async Task<DOMRect> ChangeCanvasWidth(int width)`
+
+`public async Task<DOMRect> ChangeCanvasHeight(int height)`
+
+`public async Task<DOMRect> ChangeCanvasSize(int height, int width)`
+
+`public async Task<DOMRect> ToDataURL()`
+
+`public async Task<DOMRect> ToDataURL(string type = "image/png")`
+
+`public async Task<DOMRect> ToDataURL(string type = "image/png", float encoderOptions = 1.0f)`
+
+`public async Task<DOMRect> GetBoundingClientRect()`
+
+
 #### CanvasRenderingContext2D Methods 
 `Task Arc(int x, int y, decimal radius, int startAngle, int endAngle, bool counterClockWise = false)`
 
