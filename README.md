@@ -3,11 +3,11 @@
 ## Installation
 Package Manager
 ```
-Install-Package Blazor.Canvas -Version 2.6
+Install-Package Blazor.Canvas -Version 3.0
 ```
 or .net CLI
 ```
-dotnet add package Blazor.Canvas --version 2.6
+dotnet add package Blazor.Canvas --version 3.0
 ```
 ### Javascript
 Embed JS-file to the body section of your page
