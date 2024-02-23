@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>Latest</LangVersion>
@@ -23,8 +23,8 @@
 		<Copyright>Copyright 2024 Blazor.Canvas</Copyright>
 		<PackageTags>Blazor, Blazor Canvas, Blazor.Canvas, Blazor Canvas Graphics, Blazor Canvas Element, Blazoe Drawing, Blazor Library, Rendering Context, Blazor Canvas API, Blazor Canvas Renderer, Blazor Canvas Rendering, Blazor Canvas Wrapper, Blazor Canvas Rendering Wrapper, Canvas, Canvas 2D, Canvas API, Canvas Renderer, Canvas Rendering, Canvas Renderer 2D, Canvas Rendering 2D,  CanvasRenderingContext2D, Canvas Rendering, Canvas Graphics, HTML5, HTML5 Canvas, Rendering Context</PackageTags>
 		<PackageId>Blazor.Canvas</PackageId>
-		<Version>2.5</Version>
-		<PackageVersion>2.5</PackageVersion>
+		<Version>2.6</Version>
+		<PackageVersion>2.6</PackageVersion>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -59,6 +59,12 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.16" />
 		<PackageReference Include="Microsoft.JSInterop" Version="7.0.16" />
 		<PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.27" />
+		<PackageReference Include="Microsoft.JSInterop" Version="6.0.27" />
+		<PackageReference Include="System.Drawing.Common" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
