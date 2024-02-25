@@ -1,4 +1,4 @@
-﻿using Blazor.Canvas.Models;
+using Blazor.Canvas.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System.Reflection.Metadata;
@@ -138,6 +138,34 @@ public partial class BlazorCanvas : ComponentBase, IElement
     /// The event is a device-independent event — meaning it can be activated by touch, keyboard, mouse, and any other mechanism provided by assistive technology.
     /// </summary>
     [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+    /// <summary>
+    /// The drag event is fired every few hundred milliseconds as an element or text selection is being dragged by the user.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDrag { get; set; }
+    /// <summary>
+    /// The dragend event is fired when a drag operation ends (by releasing a mouse button or hitting the escape key).
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragEnd { get; set; }
+    /// <summary>
+    /// The dragenter event is fired when a dragged element or text selection enters a valid drop target. The target object is the immediate user selection (the element directly indicated by the user as the drop target), or the <body> element.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragEnter { get; set; }
+    /// <summary>
+    /// The dragleave event is fired when a dragged element or text selection leaves a valid drop target.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragLeave { get; set; }
+    /// <summary>
+    /// The dragover event is fired when an element or text selection is being dragged over a valid drop target (every few hundred milliseconds).
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragOver { get; set; }
+    /// <summary>
+    /// The dragstart event is fired when the user starts dragging an element or text selection.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragStart { get; set; }
+    /// <summary>
+    /// The drop event is fired when an element or text selection is dropped on a valid drop target. To ensure that the drop event always fires as expected, you should always include a preventDefault() call in the part of your code which handles the dragover event.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDrop { get; set; }
     /// <summary>
     /// The contextmenu event fires when the user attempts to open a context menu. This event is typically triggered by clicking the right mouse button, or by pressing the context menu key. In the latter case, the context menu is displayed at the bottom left of the focused element, unless the element is a tree, in which case the context menu is displayed at the bottom left of the current row. Any right-click event that is not disabled (by calling the click event's preventDefault() method) will result in a contextmenu event being fired at the targeted element.
     /// </summary>

@@ -1,7 +1,10 @@
 ﻿@inherits Blazor.Canvas.Models.DOM.IElement
 
 <div id="@ContainerId" name="@ContainerName" class="@ContainerClass"
-     style="@ContainerStyle" width="@ContainerWidth" height="@ContainerHeight">
+     style="@ContainerStyle" width="@ContainerWidth" height="@ContainerHeight"
+     ondrag="@OnContainerDrag" ondragenter="@OnContainerDragEnter" ondragend="@OnContainerDragEnd" 
+     ondragleave="@OnContainerDragLeave" ondragover="@OnContainerDragOver" ondragstart="@OnContainerDragStart"
+     ondrop="@OnContainerDrop">
     <canvas id="@Id" name="@Name" width="@InitialWidth" height="@InitialHeight"
             style="@Style" class="@Class" tabindex="@TabIndex" onkeydown="@OnKeyDown"
             onkeypress="@OnKeyPress" onkeyup="@OnKeyUp" onmousedown="@OnMouseDown"

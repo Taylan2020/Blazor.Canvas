@@ -21,12 +21,23 @@ and initialize the library after your component has rendered.
 @using Blazor.Canvas.Components
 
 <BlazorCanvas @ref="Canvas" InitialWidth="600" InitialHeight="600" Id="testCanvas" Style="border: 1px solid black;"
+              
               @bind-ContainerStyle="CustomCanvasContainerStyle" ContainerClass="myclass" ContainerId="MyContainer"
-              OnMouseDown="OnMouseDown" OnMouseUp="OnMouseUp" OnMouseMove="OnMouseMove" OnMouseOut="OnMouseOut" OnMouseOver="OnMouseOver"
-              OnMouseWheel="OnMouseWheel" OnClick="OnClick" OnDoubleClick="OnDoubleClick" OnBlur="OnBlur" OnScroll="OnScroll"
-              OnKeyDown="OnKeyDown" OnKeyPress="OnKeyPress" OnKeyUp="OnKeyUp" OnWheel="OnWheel" OnContextMenu="OnContextMenu"
+
+              OnContainerDrag="OnDrag" OnContainerDragStart="OnDragStart" OnContainerDragOver="OnDragOver"
+              OnContainerDragEnd="OnDragEnd" OnContainerDrop="OnDrop" OnContainerDragEnter="OnDragEnter"
+              OnContainerDragLeave="OnDragLeave" 
+              
+              OnMouseDown="OnMouseDown" OnMouseUp="OnMouseUp"
+              OnMouseMove="OnMouseMove" OnMouseOut="OnMouseOut" OnMouseOver="OnMouseOver"
+              OnMouseWheel="OnMouseWheel" OnClick="OnClick" OnDoubleClick="OnDoubleClick"
+
+              OnKeyDown="OnKeyDown" OnKeyPress="OnKeyPress" OnKeyUp="OnKeyUp"
+
+              OnBlur="OnBlur" OnScroll="OnScroll" OnWheel="OnWheel" OnContextMenu="OnContextMenu"
+
               OnTouchStart="OnTouchStart" OnTouchMove="OnTouchMove" OnTouchEnd="OnTouchEnd" OnAuxClick="OnAuxClick"
-              OnFocus="OnFocus" OnFocusIn="OnFocusIn" OnFocusOut="OnFocusOut" OnScrollEnd="OnScrollEnd" />
+              OnFocus="OnFocus" OnFocusIn="OnFocusIn" OnFocusOut="OnFocusOut" OnScrollEnd="OnScrollEnd"/>
 
 @code{
   using Blazor.Canvas.Components;
