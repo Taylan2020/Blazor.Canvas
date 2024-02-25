@@ -1,4 +1,5 @@
 ﻿using Blazor.Canvas.Components;
+using Blazor.Canvas.Models;
 using Blazor.Canvas.Models.Gradient;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -23,30 +24,30 @@ public partial class Home
         await base.OnAfterRenderAsync(firstRender);
     }
 
-    public async Task OnKeyDown(KeyboardEventArgs args){await Task.CompletedTask;}
-    public async Task OnKeyUp(KeyboardEventArgs args) {await Task.CompletedTask;}
-    public async Task OnKeyPress(KeyboardEventArgs args) {await Task.CompletedTask;}
-    public async Task OnMouseOver(MouseEventArgs args) {await Task.CompletedTask;}
-    public async Task OnMouseOut(MouseEventArgs args) {await Task.CompletedTask;}
-    public async Task OnMouseWheel(MouseEventArgs args) {await Task.CompletedTask;}
-    public async Task OnMouseDown(MouseEventArgs args) {await Task.CompletedTask;}
-    public async Task OnMouseUp(MouseEventArgs args) {await Task.CompletedTask;}
-    public async Task OnMouseMove(MouseEventArgs args) {await Task.CompletedTask;}
-    public async Task OnAuxClick(PointerEventArgs args) {await Task.CompletedTask;}
-    public async Task OnClick(MouseEventArgs args) {await Task.CompletedTask;}
-    public async Task OnDoubleClick(MouseEventArgs args) {await Task.CompletedTask;}
-    public async Task OnBlur(FocusEventArgs args) {await Task.CompletedTask;}
-    public async Task OnFocus(FocusEventArgs args) {await Task.CompletedTask;}
-    public async Task OnFocusOut(FocusEventArgs args) {await Task.CompletedTask;}
-    public async Task OnFocusIn(FocusEventArgs args) {await Task.CompletedTask;}
-    public async Task OnScroll(EventArgs args) {await Task.CompletedTask;}
-    public async Task OnScrollEnd(EventArgs args) {await Task.CompletedTask;}
-    public async Task OnWheel(WheelEventArgs args) {await Task.CompletedTask;}
-    public async Task OnContextMenu(MouseEventArgs args) {await Task.CompletedTask;}
-    public async Task OnTouchStart(TouchEventArgs args) {await Task.CompletedTask;}
-    public async Task OnTouchMove(TouchEventArgs args) {await Task.CompletedTask;}
-    public async Task OnTouchEnd(TouchEventArgs args) {await Task.CompletedTask; }
-    public async Task OnTouchCancel(TouchEventArgs args) {await Task.CompletedTask; }
+    public async Task OnKeyDown(KeyboardEventArgs args) { await Task.CompletedTask; }
+    public async Task OnKeyUp(KeyboardEventArgs args) { await Task.CompletedTask; }
+    public async Task OnKeyPress(KeyboardEventArgs args) { await Task.CompletedTask; }
+    public async Task OnMouseOver(MouseEventArgs args) { await Task.CompletedTask; }
+    public async Task OnMouseOut(MouseEventArgs args) { await Task.CompletedTask; }
+    public async Task OnMouseWheel(MouseEventArgs args) { await Task.CompletedTask; }
+    public async Task OnMouseDown(MouseEventArgs args) { await Task.CompletedTask; }
+    public async Task OnMouseUp(MouseEventArgs args) { await Task.CompletedTask; }
+    public async Task OnMouseMove(MouseEventArgs args) { await Task.CompletedTask; }
+    public async Task OnAuxClick(PointerEventArgs args) { await Task.CompletedTask; }
+    public async Task OnClick(MouseEventArgs args) { await Task.CompletedTask; }
+    public async Task OnDoubleClick(MouseEventArgs args) { await Task.CompletedTask; }
+    public async Task OnBlur(FocusEventArgs args) { await Task.CompletedTask; }
+    public async Task OnFocus(FocusEventArgs args) { await Task.CompletedTask; }
+    public async Task OnFocusOut(FocusEventArgs args) { await Task.CompletedTask; }
+    public async Task OnFocusIn(FocusEventArgs args) { await Task.CompletedTask; }
+    public async Task OnScroll(EventArgs args) { await Task.CompletedTask; }
+    public async Task OnScrollEnd(EventArgs args) { await Task.CompletedTask; }
+    public async Task OnWheel(WheelEventArgs args) { await Task.CompletedTask; }
+    public async Task OnContextMenu(MouseEventArgs args) { await Task.CompletedTask; }
+    public async Task OnTouchStart(TouchEventArgs args) { await Task.CompletedTask; }
+    public async Task OnTouchMove(TouchEventArgs args) { await Task.CompletedTask; }
+    public async Task OnTouchEnd(TouchEventArgs args) { await Task.CompletedTask; }
+    public async Task OnTouchCancel(TouchEventArgs args) { await Task.CompletedTask; }
     public async Task DrawRect()
     {
         await Canvas.SetFillStyle("blue");
@@ -65,39 +66,53 @@ public partial class Home
     {
         var rad = new RadialGradient(110, 90, 30, 100, 100, 70, new() { new(0f, "pink"), new(0.9f, "white"), new(1f, "green") });
         await Canvas.SetFillStyle(rad);
-        await Canvas.FillRect(20,20,160,160);
+        await Canvas.FillRect(20, 20, 160, 160);
     }
     public async Task DrawLinearGradient()
     {
         var rad = new LinearGradient(110, 90, 100, 100, new() { new(0f, "pink"), new(0.9f, "white"), new(1f, "green") });
         await Canvas.SetFillStyle(rad);
-        await Canvas.FillRect(20,20,160,160);
+        await Canvas.FillRect(20, 20, 160, 160);
     }
     public async Task DrawConicGradient()
     {
         var rad = new ConicGradient(110, 90, 100, new() { new(0f, "pink"), new(0.9f, "white"), new(1f, "green") });
         await Canvas.SetFillStyle(rad);
-        await Canvas.FillRect(20,20,160,160);
+        await Canvas.FillRect(20, 20, 160, 160);
     }
     public async Task FillRect()
     {
         await Canvas.SetFillStyle("orange");
-        await Canvas.FillRect(50,50,160,160);
+        await Canvas.FillRect(50, 50, 160, 160);
     }
     public async Task StrokeRect()
     {
         await Canvas.SetStrokeStyle("purple");
-        await Canvas.StrokeRect(50,50,160,160);
+        await Canvas.StrokeRect(50, 50, 160, 160);
     }
     public async Task FillText()
     {
-       // await Canvas.SetStrokeStyle("brown");
+        // await Canvas.SetStrokeStyle("brown");
+        await Canvas.SetTextAlign(TextAlign.Center);
         await Canvas.SetFont("bold 48px serif");
+        await Canvas.SetStrokeStyle("red");
         await Canvas.StrokeText("Hello World", 50, 100);
     }
     public async Task ToDataURL()
     {
-       // await Canvas.SetStrokeStyle("brown");
-        var x =await Canvas.ToDataURL();
+        // await Canvas.SetStrokeStyle("brown");
+        var x = await Canvas.ToDataURL();
+    }
+
+    public async Task GetBoundingClientRect()
+    {
+        var boundingClientRect = await Canvas.GetBoundingClientRect();
+        Console.WriteLine(boundingClientRect?.X);
+    }
+
+    public async Task GetWindow()
+    {
+        var windowInfo = await Canvas.GetWindow(_JS);
+        Console.WriteLine(windowInfo?.Name);
     }
 }

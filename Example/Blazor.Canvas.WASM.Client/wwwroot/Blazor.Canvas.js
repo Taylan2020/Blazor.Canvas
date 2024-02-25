@@ -58,7 +58,20 @@ class BlazorCanvasManager {
 
         return model;
     }
+    GetBoundingClientRect() {
+        let boundingClientRect = this.Canvas.getBoundingClientRect();
 
+        return {
+            X: boundingClientRect.x,
+            Y: boundingClientRect.y,
+            Width: boundingClientRect.width,
+            Height: boundingClientRect.height,
+            Top: boundingClientRect.top,
+            Right: boundingClientRect.right,
+            Bottom: boundingClientRect.bottom,
+            Left: boundingClientRect.left
+        };
+    }
     /**
      * 
      * @param {string} color
@@ -196,13 +209,23 @@ class BlazorCanvasManager {
         this.CanvasContext.strokeStyle = grad;
     }
 }
-function GetPropertyOwner(propertyString) {
 
+function SerializeWindowBar(prop) {
+    if (!prop)
+        return null;
+
+    if (typeof (prop.visible) === 'boolean')
+        return {
+            Visible: window.personalbar.visible
+        };
+
+    return null;
 }
+
 function SetProperty(name, value) {
     let parts = name.split(".");
 
-    for (var i = 0, len = parts.length, obj = window; i < len-1; ++i) {
+    for (var i = 0, len = parts.length, obj = window; i < len - 1; ++i) {
         obj = obj[parts[i]];
     }
 
@@ -211,3 +234,60 @@ function SetProperty(name, value) {
 /** @type {BlazorCanvasManager}*/
 window.Blazor_Canvas_Manager = new BlazorCanvasManager();
 window.SetProperty = SetProperty;
+window.WindowInformation = function () {
+    let location = null;
+    let visualViewport = null;
+
+    if (window.location) {
+        location = {
+            Hash: (window.location.hash ? window.location.hash.toString() : null),
+            Host: (window.location.host ? window.location.host.toString() : null),
+            HostName: (window.location.hostname ? window.location.hostname.toString() : null),
+            Href: (window.location.href ? window.location.href.toString() : null),
+            Origin: (window.location.origin ? window.location.origin.toString() : null),
+            PathName: (window.location.pathname ? window.location.pathname.toString() : null),
+            Port: (window.location.port ? window.location.port.toString() : null),
+            Protocol: (window.location.protocol ? window.location.protocol.toString() : null),
+            Search: (window.location.search ? window.location.search.toString() : null),
+        };
+    }
+
+    if (window.visualViewport) {
+        visualViewport = {
+            OffsetLeft: (isNaN(window.visualViewport.offsetLeft) === false ? window.visualViewport.offsetLeft : null),
+            OffsetTop: (isNaN(window.visualViewport.offsetTop) === false ? window.visualViewport.offsetTop : null),
+            PageLeft: (isNaN(window.visualViewport.pageLeft) === false ? window.visualViewport.pageLeft : null),
+            PageTop: (isNaN(window.visualViewport.pageTop) === false ? window.visualViewport.pageTop : null),
+            Width: (isNaN(window.visualViewport.width) === false ? window.visualViewport.width : null),
+            Height: (isNaN(window.visualViewport.height) === false ? window.visualViewport.height : null),
+            Scale: (isNaN(window.visualViewport.scale) === false ? window.visualViewport.scale : null),
+        };
+    }
+
+    let result = {
+        Closed: window.closed ?? null,
+        DevicePixelRatio: window.devicePixelRatio ?? null,
+        InnerWidth: window.innerWidth ?? null,
+        InnerHeight: window.innerHeight ?? null,
+        Length: window.length ?? null,
+        Location: location,
+        LocationBar: this.SerializeWindowBar(window.locationbar),
+        MenuBar: this.SerializeWindowBar(window.menubar),
+        Name: window.name ?? null,
+        OuterWidth: window.outerWidth ?? null,
+        OuterHeight: window.outerHeight ?? null,
+        PersonalBar: this.SerializeWindowBar(window.personalbar),
+        ScreenLeft: window.screenLeft ?? null,
+        ScreenTop: window.screenTop ?? null,
+        ScreenX: window.screenX ?? null,
+        ScreenY: window.screenY ?? null,
+        ScrollX: window.scrollX ?? null,
+        ScrollY: window.scrollY ?? null,
+        ScrollBars: this.SerializeWindowBar(window.scrollbars),
+        StatusBar: this.SerializeWindowBar(window.statusbar),
+        ToolBar: this.SerializeWindowBar(window.toolbar),
+        VisualViewport: visualViewport
+    };
+
+    return result;
+};
