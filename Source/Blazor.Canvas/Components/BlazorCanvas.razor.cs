@@ -1,4 +1,4 @@
-using Blazor.Canvas.Models;
+﻿using Blazor.Canvas.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System.Reflection.Metadata;
@@ -67,19 +67,19 @@ public partial class BlazorCanvas : ComponentBase, IElement
     /// </summary>
     [Parameter] public bool Hidden { get; set; }
     /// <summary>
-    /// <inheritdoc cref="BlazorCanvasContainer.Id"/>
+    /// Specifies the id of the canvas container element, in pixels.
     /// </summary>
     [Parameter] public string? ContainerId { get; init; }
     /// <summary>
-    /// <inheritdoc cref="BlazorCanvasContainer.Name"/>
+    /// Specifies the name of the canvas container element, in pixels.
     /// </summary>
     [Parameter] public string? ContainerName { get; init; }
     /// <summary>
-    /// <inheritdoc cref="BlazorCanvasContainer.Class"/>
+    /// Specifies the class of the canvas container element, in pixels.
     /// </summary>
     [Parameter] public string? ContainerClass { get; set; }
     /// <summary>
-    /// <inheritdoc cref="BlazorCanvasContainer.Style"/>
+    /// Specifies the style of the canvas container element, in pixels.
     /// </summary>
     [Parameter] public string? ContainerStyle { get; set; }
     /// <summary>
@@ -91,22 +91,6 @@ public partial class BlazorCanvas : ComponentBase, IElement
     /// </summary>
     [Parameter] public int ContainerHeight { get; init; }
 
-    /// <summary>
-    /// Fires when canvas container class changed.
-    /// </summary>
-    [Parameter] public EventCallback<string?> ContainerClassChanged { get; set; }
-    /// <summary>
-    /// Fires when canvas container style changed
-    /// </summary>
-    [Parameter] public EventCallback<string?> ContainerStyleChanged { get; set; }
-    /// <summary>
-    /// Fires when canvas class changed
-    /// </summary>
-    [Parameter] public EventCallback<string?> ClassChanged { get; set; }
-    /// <summary>
-    /// Fires when canvas style changed
-    /// </summary>
-    [Parameter] public EventCallback<string?> StyleChanged { get; set; }
     #endregion
 
     #region Fields
@@ -124,6 +108,22 @@ public partial class BlazorCanvas : ComponentBase, IElement
     #endregion
 
     #region Event Callbacks
+    /// <summary>
+    /// Fires when canvas container class changed.
+    /// </summary>
+    [Parameter] public EventCallback<string?> ContainerClassChanged { get; set; }
+    /// <summary>
+    /// Fires when canvas container style changed
+    /// </summary>
+    [Parameter] public EventCallback<string?> ContainerStyleChanged { get; set; }
+    /// <summary>
+    /// Fires when canvas class changed
+    /// </summary>
+    [Parameter] public EventCallback<string?> ClassChanged { get; set; }
+    /// <summary>
+    /// Fires when canvas style changed
+    /// </summary>
+    [Parameter] public EventCallback<string?> StyleChanged { get; set; }
     /// <summary>
     /// The auxclick event is fired at an Element when a non-primary pointing device button (any mouse button other than the primary—usually leftmost—button) has been pressed and released both within the same element. Auxclick is fired after the mousedown and mouseup events have been fired, in that order.
     /// </summary>
