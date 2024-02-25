@@ -1,9 +1,13 @@
-﻿
-<canvas id="@Id" name="@Name" width="@InitialWidth" height="@InitialHeight"
-        style="@Style" class="@Class" tabindex="@TabIndex" onkeydown="@OnKeyDown"
-        onkeypress="@OnKeyPress" onkeyup="@OnKeyUp" onmousedown="@OnMouseDown"
-        onmouseup="@OnMouseUp" onmousemove="@OnMouseMove" onmousewheel="@OnMouseWheel" 
-        onmouseover="@OnMouseOver" onmouseout="@OnMouseOut" onclick="@OnClick" onscrollend="@OnScrollEnd"
-        onblur="@OnBlur" ondblclick="@OnDoubleClick" onscroll="@OnScroll" oncontextmenu="@OnContextMenu"
-        onwheel="@OnWheel" onauxclick="@OnAuxClick" onfocus="@OnFocus" onfocusin="@OnFocusIn" onfocusout="@OnFocusOut"
-        ontouchcancel="@OnTouchCancel" ontouchstart=" @OnTouchStart" ontouchmove="@OnTouchMove" ontouchend="@OnTouchEnd"></canvas>
+﻿@inherits Blazor.Canvas.Models.DOM.IElement
+
+<div id="@ContainerId" name="@ContainerName" class="@ContainerClass"
+     style="@ContainerStyle" width="@ContainerWidth" height="@ContainerHeight">
+    <canvas id="@Id" name="@Name" width="@InitialWidth" height="@InitialHeight"
+            style="@Style" class="@Class" tabindex="@TabIndex" onkeydown="@OnKeyDown"
+            onkeypress="@OnKeyPress" onkeyup="@OnKeyUp" onmousedown="@OnMouseDown"
+            onmouseup="@OnMouseUp" onmousemove="@OnMouseMove" onmousewheel="@OnMouseWheel"
+            onmouseover="@OnMouseOver" onmouseout="@OnMouseOut" onclick="@OnClick" onscrollend="@OnScrollEnd"
+            onblur="@OnBlur" ondblclick="@OnDoubleClick" onscroll="@OnScroll" oncontextmenu="@OnContextMenu"
+            onwheel="@OnWheel" onauxclick="@OnAuxClick" onfocus="@OnFocus" onfocusin="@OnFocusIn" onfocusout="@OnFocusOut"
+            ontouchcancel="@OnTouchCancel" ontouchstart="@OnTouchStart" ontouchmove="@OnTouchMove" ontouchend="@OnTouchEnd"></canvas>
+</div>

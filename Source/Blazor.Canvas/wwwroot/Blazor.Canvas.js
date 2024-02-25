@@ -1,4 +1,4 @@
-﻿
+
 class BlazorCanvasManager {
     /** @type {object} */
     dotNETReference = null;
@@ -8,29 +8,14 @@ class BlazorCanvasManager {
      * @param {string} id
      * @param {object} dotNETReference
      */
-    Initialize(id, dotNETReference) {
+    Initialize(id, containerId, dotNETReference) {
         this.dotNETReference = dotNETReference;
         /** @type {HTMLCanvasElement} */
         this.Canvas = document.getElementById(id);
+        /** @type {HTMLDivElement} */
+        this.CanvasContainer = document.getElementById(containerId);
         /** @type {CanvasRenderingContext2D} */
         this.CanvasContext = this.Canvas.getContext("2d");
-    }
-
-    /**
-     * 
-     * @param {string} id
-     * @return {boolean}
-     */
-    DOMElementExists(id) {
-        return !!document.getElementById(id);
-    }
-
-    /**
-     * 
-     * @return {boolean}
-     */
-    IsContextValid() {
-        return !!this.CanvasContext;
     }
 
     /**
@@ -57,20 +42,6 @@ class BlazorCanvasManager {
         };
 
         return model;
-    }
-    GetBoundingClientRect() {
-        let boundingClientRect = this.Canvas.getBoundingClientRect();
-
-        return {
-            X: boundingClientRect.x,
-            Y: boundingClientRect.y,
-            Width: boundingClientRect.width,
-            Height: boundingClientRect.height,
-            Top: boundingClientRect.top,
-            Right: boundingClientRect.right,
-            Bottom: boundingClientRect.bottom,
-            Left: boundingClientRect.left
-        };
     }
     /**
      * 
