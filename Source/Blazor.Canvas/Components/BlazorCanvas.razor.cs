@@ -935,5 +935,16 @@ public partial class BlazorCanvas
         => await SetPropertyValueInPixels($"{INTEROP_NAMES.CANVAS_CONTEXT2D}.{nameof(wordSpacing)}", wordSpacing);
     #endregion
     #endregion
+
+    #region Window
+    /// <summary>
+    /// Returns the built-in window properties in which the script is running
+    /// </summary>
+    /// <param name="_js"></param>
+    /// <returns></returns>
+    public async Task<Window> GetWindow(IJSRuntime _js)
+        => await _js.InvokeAsync<Window>("WindowInformation");
+    #endregion
+
     #endregion
 }

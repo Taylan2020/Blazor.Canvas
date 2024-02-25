@@ -18,6 +18,8 @@ Embed JS-file to the body section of your page
 Add Component to your razor view using the BlazorCanvas-Tag
 and initialize the library after your component has rendered.
 ```razor
+@using Blazor.Canvas.Components
+
 <BlazorCanvas @ref="Canvas" InitialWidth="600" InitialHeight="600" Id="testCanvas" style="border: 1px solid black;"
   OnMouseDown="OnMouseDown" OnMouseUp="OnMouseUp" OnMouseMove="OnMouseMove" OnMouseOut="OnMouseOut" OnMouseOver="OnMouseOver"
               OnMouseWheel="OnMouseWheel" OnClick="OnClick" OnDoubleClick="OnDoubleClick" OnBlur="OnBlur" OnScroll="OnScroll"
@@ -116,6 +118,9 @@ and initialize the library after your component has rendered.
 
 `Task Initialize()`
 
+
+#### Window Methods 
+`public async Task GetWindow()`
 
 #### CanvasElement Methods 
 `public async Task ChangeCanvasWidth(int width)`
