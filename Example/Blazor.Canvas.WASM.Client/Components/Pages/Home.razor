@@ -18,6 +18,8 @@ Welcome to your new app.
 <button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await StrokeRect())">Stroke Rect</button>
 <button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await FillText())">Fill Text</button>
 <button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await ToDataURL())">To DataUrl</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await GetBoundingClientRect())">Get BoundingClientRect</button>
+<button class="btn btn-primary" disabled="@IsButtonDisabled" @onclick="@(async () => await GetWindow())">Get Window</button>
 <br/>
 <BlazorCanvas @ref="Canvas" InitialWidth="600" InitialHeight="600" Id="testCanvas" style="border: 1px solid black;"
   OnMouseDown="OnMouseDown" OnMouseUp="OnMouseUp" OnMouseMove="OnMouseMove" OnMouseOut="OnMouseOut" OnMouseOver="OnMouseOver"
