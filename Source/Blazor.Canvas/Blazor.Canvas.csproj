@@ -6,6 +6,7 @@
 		<Nullable>enable</Nullable>
 		<LangVersion>Latest</LangVersion>
 		<RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+		<OutputType>Library</OutputType>
 	</PropertyGroup>
 
 	<PropertyGroup>
