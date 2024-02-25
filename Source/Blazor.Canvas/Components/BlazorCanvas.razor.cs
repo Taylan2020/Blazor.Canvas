@@ -1,4 +1,4 @@
-using Blazor.Canvas.Models;
+﻿using Blazor.Canvas.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System.Reflection.Metadata;
@@ -339,8 +339,11 @@ public partial class BlazorCanvas : ComponentBase, IElement
     /// Returns a DOMRect object providing information about the size of the canvas and its position relative to the viewport.
     /// </summary>
     /// <returns></returns>
+    public async Task<ViewInformation> GetViewInformation()
+    => await _JS.InvokeAsync<ViewInformation>($"{nameof(GetViewInformation)}");
+    [Obsolete("GetBoundingClientRect is obsolete. Use GetViewInformation() instead", true)]
     public async Task<DOMRect> GetBoundingClientRect()
-    => await _JS.InvokeAsync<DOMRect>($"{INTEROP_NAMES.CANVAS_MANAGER}.{nameof(GetBoundingClientRect)}");
+  => throw new InvalidOperationException($"{nameof(GetBoundingClientRect)} is obsolete. Use {GetViewInformation}() instead.");
     #endregion
 
     #region CanvasRenderingContext

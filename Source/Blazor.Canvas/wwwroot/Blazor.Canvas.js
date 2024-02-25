@@ -1,4 +1,4 @@
-
+﻿
 class BlazorCanvasManager {
     /** @type {object} */
     dotNETReference = null;
@@ -202,16 +202,51 @@ function SetProperty(name, value) {
 
     obj[parts[parts.length - 1]] = value;
 }
-/** @type {BlazorCanvasManager}*/
-window.Blazor_Canvas_Manager = new BlazorCanvasManager();
-window.SetProperty = SetProperty;
-window.WindowInformation = function () {
+
+function GetBoundingClientRect(elem) {
+    if (elem == null)
+        return null;
+
+    let boundingClientRect = elem.getBoundingClientRect();
+
+    return {
+        X: boundingClientRect.x,
+        Y: boundingClientRect.y,
+        Width: boundingClientRect.width,
+        Height: boundingClientRect.height,
+        Top: boundingClientRect.top,
+        Right: boundingClientRect.right,
+        Bottom: boundingClientRect.bottom,
+        Left: boundingClientRect.left
+    };
+}
+function ElementPositionSizeInformation(element) {
+    if (!element)
+        return null;
+
+    return {
+        BoundingClientRect: GetBoundingClientRect(element),
+        ClientLeft: element.clientLeft ?? null,
+        ClientTop: element.clientTop ?? null,
+        ClientWidth: element.clientWidth ?? null,
+        ClientHeight: element.clientHeight ?? null,
+        OffsetLeft: element.offsetLeft ?? null,
+        OffsetTop: element.offsetTop ?? null,
+        OffsetWidth: element.offsetWidth ?? null,
+        OffsetHeight: element.offsetHeight ?? null,
+        ScrollLeft: element.scrollLeft ?? null,
+        ScrollTop: element.scrollTop ?? null,
+        ScrollWidth: element.scrollWidth ?? null,
+        ScrollHeight: element.scrollHeight ?? null,
+    };
+}
+function WindowInformation() {
     let location = null;
     let visualViewport = null;
 
     if (window.location) {
         location = {
-            Hash: (window.location.hash ? window.location.hash.toString() :null),
+            Hash: (window.location.hash ? window.location.hash.toString() : null),
             Host: (window.location.host ? window.location.host.toString() : null),
             HostName: (window.location.hostname ? window.location.hostname.toString() : null),
             Href: (window.location.href ? window.location.href.toString() : null),
@@ -225,17 +260,17 @@ window.WindowInformation = function () {
 
     if (window.visualViewport) {
         visualViewport = {
-            OffsetLeft: (isNaN(window.visualViewport.offsetLeft) === false ? window.visualViewport.offsetLeft : null),
-            OffsetTop: (isNaN(window.visualViewport.offsetTop) === false ? window.visualViewport.offsetTop : null),
-            PageLeft: (isNaN(window.visualViewport.pageLeft) === false ? window.visualViewport.pageLeft : null),
-            PageTop: (isNaN(window.visualViewport.pageTop) === false ? window.visualViewport.pageTop : null),
-            Width: (isNaN(window.visualViewport.width) === false ? window.visualViewport.width : null),
-            Height: (isNaN(window.visualViewport.height) === false ? window.visualViewport.height : null),
-            Scale: (isNaN(window.visualViewport.scale) === false ? window.visualViewport.scale : null),
+            Width: window.visualViewport.width ?? null,
+            Height: window.visualViewport.height ?? null,
+            Scale: window.visualViewport.scale ?? null,
+            OffsetLeft: window.visualViewport.offsetLeft ?? null,
+            OffsetTop: window.visualViewport.offsetTop ?? null,
+            PageLeft: window.visualViewport.pageLeft ?? null,
+            PageTop: window.visualViewport.pageTop ?? null,
         };
     }
 
-    let result = {
+    return {
         Closed: window.closed ?? null,
         DevicePixelRatio: window.devicePixelRatio ?? null,
         InnerWidth: window.innerWidth ?? null,
@@ -259,6 +294,27 @@ window.WindowInformation = function () {
         ToolBar: this.SerializeWindowBar(window.toolbar),
         VisualViewport: visualViewport
     };
+}
 
-    return result;
+window.GetViewInformation = function () {
+    let infoCanvasContainer = null;
+    let infoCanvas = null;
+
+    if (window.Blazor_Canvas_Manager) {
+        if (window.Blazor_Canvas_Manager.CanvasContainer)
+            infoCanvasContainer = this.ElementPositionSizeInformation(window.Blazor_Canvas_Manager.CanvasContainer);
+
+        if (window.Blazor_Canvas_Manager.Canvas)
+            infoCanvas = this.ElementPositionSizeInformation(window.Blazor_Canvas_Manager.Canvas);
+    }
+
+    return {
+        Canvas: infoCanvas,
+        CanvasContainer: infoCanvasContainer,
+        Window: this.WindowInformation(),
+    };
 };
+
+window.Blazor_Canvas_Manager = new BlazorCanvasManager();
+window.SetProperty = SetProperty;
+window.WindowInformation = WindowInformation;
