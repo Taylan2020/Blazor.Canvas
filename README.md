@@ -86,6 +86,13 @@ and initialize the library after your component has rendered.
   public async Task OnTouchMove(TouchEventArgs args) {await Task.CompletedTask;}
   public async Task OnTouchEnd(TouchEventArgs args) {await Task.CompletedTask; }
   public async Task OnTouchCancel(TouchEventArgs args) {await Task.CompletedTask; }
+  public async Task OnDrag(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragEnd(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragEnter(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragLeave(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragOver(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragStart(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDrop(DragEventArgs args) { await Task.CompletedTask; }
 }
 ```
 ## Usage
