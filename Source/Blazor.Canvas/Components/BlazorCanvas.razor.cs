@@ -10,13 +10,15 @@ using Blazor.Canvas.Models.Gradient;
 using Microsoft.AspNetCore.Components.Web;
 using Blazor.Canvas.Data;
 using Blazor.Canvas.Models.DOM;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace Blazor.Canvas.Components;
 
 /// <summary>
 /// Blazor wrapper for HTML Canvas Graphics
 /// </summary>
-public partial class BlazorCanvas
+public partial class BlazorCanvas : ComponentBase, IElement
 {
     #region Properties / Fields
     #region Injects
@@ -35,11 +37,11 @@ public partial class BlazorCanvas
     /// <summary>
     /// Defines an identifier (ID) for the canvas element which must be unique in the whole document.
     /// </summary>
-    [Parameter] public string? Id { get; set; }
+    [Parameter] public string? Id { get; init; }
     /// <summary>
     /// Defines a name for the canvas element.
     /// </summary>
-    [Parameter] public string? Name { get; set; }
+    [Parameter] public string? Name { get; init; }
     /// <summary>
     /// Specifies the initial starting width of the canvas element, in pixels.
     /// </summary>
@@ -64,6 +66,47 @@ public partial class BlazorCanvas
     /// A hidden attribute on a canvas tag hides the canvas. Although the canvas is not visible, its position on the page is maintained.
     /// </summary>
     [Parameter] public bool Hidden { get; set; }
+    /// <summary>
+    /// <inheritdoc cref="BlazorCanvasContainer.Id"/>
+    /// </summary>
+    [Parameter] public string? ContainerId { get; init; }
+    /// <summary>
+    /// <inheritdoc cref="BlazorCanvasContainer.Name"/>
+    /// </summary>
+    [Parameter] public string? ContainerName { get; init; }
+    /// <summary>
+    /// <inheritdoc cref="BlazorCanvasContainer.Class"/>
+    /// </summary>
+    [Parameter] public string? ContainerClass { get; set; }
+    /// <summary>
+    /// <inheritdoc cref="BlazorCanvasContainer.Style"/>
+    /// </summary>
+    [Parameter] public string? ContainerStyle { get; set; }
+    /// <summary>
+    /// Specifies the width of the canvas container element, in pixels.
+    /// </summary>
+    [Parameter] public int ContainerWidth { get; init; }
+    /// <summary>
+    /// Specifies the height of the canvas container element, in pixels.
+    /// </summary>
+    [Parameter] public int ContainerHeight { get; init; }
+
+    /// <summary>
+    /// Fires when canvas container class changed.
+    /// </summary>
+    [Parameter] public EventCallback<string?> ContainerClassChanged { get; set; }
+    /// <summary>
+    /// Fires when canvas container style changed
+    /// </summary>
+    [Parameter] public EventCallback<string?> ContainerStyleChanged { get; set; }
+    /// <summary>
+    /// Fires when canvas class changed
+    /// </summary>
+    [Parameter] public EventCallback<string?> ClassChanged { get; set; }
+    /// <summary>
+    /// Fires when canvas style changed
+    /// </summary>
+    [Parameter] public EventCallback<string?> StyleChanged { get; set; }
     #endregion
 
     #region Fields
@@ -223,9 +266,17 @@ public partial class BlazorCanvas
     /// <returns></returns>
     public async Task Initialize(IJSRuntime _js)
     {
+        if (string.IsNullOrEmpty(Id))
+            throw new ArgumentNullException($"'{nameof(Id)}' cannot be null or empty!");
+
+        if (string.IsNullOrEmpty(ContainerId))
+            throw new ArgumentNullException($"'{nameof(ContainerId)}' cannot be null or empty!");
+
         _DotNetRef = DotNetObjectReference.Create(this);
+
         _JS = _js;
-        await _JS.InvokeVoidAsync($"{INTEROP_NAMES.CANVAS_MANAGER}.Initialize", Id, _DotNetRef);
+
+        await _JS.InvokeVoidAsync($"{INTEROP_NAMES.CANVAS_MANAGER}.Initialize", Id, ContainerId, _DotNetRef);
         await ChangeCanvasSize(InitialWidth, InitialHeight);
     }
 
@@ -288,8 +339,11 @@ public partial class BlazorCanvas
     /// Returns a DOMRect object providing information about the size of the canvas and its position relative to the viewport.
     /// </summary>
     /// <returns></returns>
+    public async Task<ViewInformation> GetViewInformation()
+    => await _JS.InvokeAsync<ViewInformation>($"{nameof(GetViewInformation)}");
+    [Obsolete("GetBoundingClientRect is obsolete. Use GetViewInformation() instead", true)]
     public async Task<DOMRect> GetBoundingClientRect()
-    => await _JS.InvokeAsync<DOMRect>($"{INTEROP_NAMES.CANVAS_MANAGER}.{nameof(GetBoundingClientRect)}");
+  => throw new InvalidOperationException($"{nameof(GetBoundingClientRect)} is obsolete. Use {GetViewInformation}() instead.");
     #endregion
 
     #region CanvasRenderingContext
