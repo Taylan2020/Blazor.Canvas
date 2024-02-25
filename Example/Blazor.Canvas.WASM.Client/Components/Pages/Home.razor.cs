@@ -49,6 +49,13 @@ public partial class Home
     public async Task OnTouchMove(TouchEventArgs args) { await Task.CompletedTask; }
     public async Task OnTouchEnd(TouchEventArgs args) { await Task.CompletedTask; }
     public async Task OnTouchCancel(TouchEventArgs args) { await Task.CompletedTask; }
+    public async Task OnDrag(DragEventArgs args) { await Task.CompletedTask; }
+    public async Task OnDragEnd(DragEventArgs args) { await Task.CompletedTask; }
+    public async Task OnDragEnter(DragEventArgs args) { await Task.CompletedTask; }
+    public async Task OnDragLeave(DragEventArgs args) { await Task.CompletedTask; }
+    public async Task OnDragOver(DragEventArgs args) { await Task.CompletedTask; }
+    public async Task OnDragStart(DragEventArgs args) { await Task.CompletedTask; }
+    public async Task OnDrop(DragEventArgs args) { await Task.CompletedTask; }
     public async Task DrawRect()
     {
         await Canvas.SetFillStyle("blue");
@@ -123,20 +130,20 @@ public partial class Home
         Console.WriteLine($"canvas.getBoundingClientRect().Top={viewInfos.Canvas.BoundingClientRect?.Top}");
         Console.WriteLine($"canvas.getBoundingClientRect().Bottom={viewInfos.Canvas.BoundingClientRect?.Bottom}");
 
-        Console.WriteLine($"canvas.getBoundingClientRect().OffsetTop={viewInfos.Canvas.OffsetTop}");
-        Console.WriteLine($"canvas.getBoundingClientRect().OffsetLeft={viewInfos.Canvas.OffsetLeft}");
-        Console.WriteLine($"canvas.getBoundingClientRect().OffsetWidth={viewInfos.Canvas.OffsetWidth}");
-        Console.WriteLine($"canvas.getBoundingClientRect().OffsetHeight={viewInfos.Canvas.OffsetHeight}");
+        Console.WriteLine($"canvas.OffsetTop={viewInfos.Canvas.OffsetTop}");
+        Console.WriteLine($"canvas.OffsetLeft={viewInfos.Canvas.OffsetLeft}");
+        Console.WriteLine($"canvas.OffsetWidth={viewInfos.Canvas.OffsetWidth}");
+        Console.WriteLine($"canvas.OffsetHeight={viewInfos.Canvas.OffsetHeight}");
 
-        Console.WriteLine($"canvas.getBoundingClientRect().ClientTop={viewInfos.Canvas.ClientTop}");
-        Console.WriteLine($"canvas.getBoundingClientRect().ClientLeft={viewInfos.Canvas.ClientLeft}");
-        Console.WriteLine($"canvas.getBoundingClientRect().ClientWidth={viewInfos.Canvas.ClientWidth}");
-        Console.WriteLine($"canvas.getBoundingClientRect().ClientHeight={viewInfos.Canvas.ClientHeight}");
+        Console.WriteLine($"canvas.ClientTop={viewInfos.Canvas.ClientTop}");
+        Console.WriteLine($"canvas.ClientLeft={viewInfos.Canvas.ClientLeft}");
+        Console.WriteLine($"canvas.ClientWidth={viewInfos.Canvas.ClientWidth}");
+        Console.WriteLine($"canvas.ClientHeight={viewInfos.Canvas.ClientHeight}");
 
-        Console.WriteLine($"canvas.getBoundingClientRect().ScrollTop={viewInfos.Canvas.ScrollTop}");
-        Console.WriteLine($"canvas.getBoundingClientRect().ScrollLeft={viewInfos.Canvas.ScrollLeft}");
-        Console.WriteLine($"canvas.getBoundingClientRect().ScrollWidth={viewInfos.Canvas.ScrollWidth}");
-        Console.WriteLine($"canvas.getBoundingClientRect().ScrollHeight={viewInfos.Canvas.ScrollHeight}");
+        Console.WriteLine($"canvas.ScrollTop={viewInfos.Canvas.ScrollTop}");
+        Console.WriteLine($"canvas.ScrollLeft={viewInfos.Canvas.ScrollLeft}");
+        Console.WriteLine($"canvas.ScrollWidth={viewInfos.Canvas.ScrollWidth}");
+        Console.WriteLine($"canvas.ScrollHeight={viewInfos.Canvas.ScrollHeight}");
     }
     public async Task GetCanvasContainerInformation()
     {
@@ -157,20 +164,20 @@ public partial class Home
         Console.WriteLine($"canvasContainer.getBoundingClientRect().Top={viewInfos.CanvasContainer.BoundingClientRect?.Top}");
         Console.WriteLine($"canvasContainer.getBoundingClientRect().Bottom={viewInfos.CanvasContainer.BoundingClientRect?.Bottom}");
 
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().OffsetTop={viewInfos.CanvasContainer.OffsetTop}");
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().OffsetLeft={viewInfos.CanvasContainer.OffsetLeft}");
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().OffsetWidth={viewInfos.CanvasContainer.OffsetWidth}");
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().OffsetHeight={viewInfos.CanvasContainer.OffsetHeight}");
+        Console.WriteLine($"canvasContainer.OffsetTop={viewInfos.CanvasContainer.OffsetTop}");
+        Console.WriteLine($"canvasContainer.OffsetLeft={viewInfos.CanvasContainer.OffsetLeft}");
+        Console.WriteLine($"canvasContainer.OffsetWidth={viewInfos.CanvasContainer.OffsetWidth}");
+        Console.WriteLine($"canvasContainer.OffsetHeight={viewInfos.CanvasContainer.OffsetHeight}");
 
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().ClientTop={viewInfos.Canvas?.ClientTop}");
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().ClientLeft={viewInfos.Canvas?.ClientLeft}");
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().ClientWidth={viewInfos.Canvas?.ClientWidth}");
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().ClientHeight={viewInfos.Canvas?.ClientHeight}");
+        Console.WriteLine($"canvasContainer.ClientTop={viewInfos.Canvas?.ClientTop}");
+        Console.WriteLine($"canvasContainer.ClientLeft={viewInfos.Canvas?.ClientLeft}");
+        Console.WriteLine($"canvasContainer.ClientWidth={viewInfos.Canvas?.ClientWidth}");
+        Console.WriteLine($"canvasContainer.ClientHeight={viewInfos.Canvas?.ClientHeight}");
 
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().ScrollTop={viewInfos.CanvasContainer.ScrollTop}");
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().ScrollLeft={viewInfos.CanvasContainer.ScrollLeft}");
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().ScrollWidth={viewInfos.CanvasContainer.ScrollWidth}");
-        Console.WriteLine($"canvasContainer.getBoundingClientRect().ScrollHeight={viewInfos.CanvasContainer.ScrollHeight}");
+        Console.WriteLine($"canvasContainer.ScrollTop={viewInfos.CanvasContainer.ScrollTop}");
+        Console.WriteLine($"canvasContainer.ScrollLeft={viewInfos.CanvasContainer.ScrollLeft}");
+        Console.WriteLine($"canvasContainer.ScrollWidth={viewInfos.CanvasContainer.ScrollWidth}");
+        Console.WriteLine($"canvasContainer.ScrollHeight={viewInfos.CanvasContainer.ScrollHeight}");
     }
 
     public async Task GetWindowInformation()

@@ -67,19 +67,19 @@ public partial class BlazorCanvas : ComponentBase, IElement
     /// </summary>
     [Parameter] public bool Hidden { get; set; }
     /// <summary>
-    /// <inheritdoc cref="BlazorCanvasContainer.Id"/>
+    /// Specifies the id of the canvas container element, in pixels.
     /// </summary>
     [Parameter] public string? ContainerId { get; init; }
     /// <summary>
-    /// <inheritdoc cref="BlazorCanvasContainer.Name"/>
+    /// Specifies the name of the canvas container element, in pixels.
     /// </summary>
     [Parameter] public string? ContainerName { get; init; }
     /// <summary>
-    /// <inheritdoc cref="BlazorCanvasContainer.Class"/>
+    /// Specifies the class of the canvas container element, in pixels.
     /// </summary>
     [Parameter] public string? ContainerClass { get; set; }
     /// <summary>
-    /// <inheritdoc cref="BlazorCanvasContainer.Style"/>
+    /// Specifies the style of the canvas container element, in pixels.
     /// </summary>
     [Parameter] public string? ContainerStyle { get; set; }
     /// <summary>
@@ -91,22 +91,6 @@ public partial class BlazorCanvas : ComponentBase, IElement
     /// </summary>
     [Parameter] public int ContainerHeight { get; init; }
 
-    /// <summary>
-    /// Fires when canvas container class changed.
-    /// </summary>
-    [Parameter] public EventCallback<string?> ContainerClassChanged { get; set; }
-    /// <summary>
-    /// Fires when canvas container style changed
-    /// </summary>
-    [Parameter] public EventCallback<string?> ContainerStyleChanged { get; set; }
-    /// <summary>
-    /// Fires when canvas class changed
-    /// </summary>
-    [Parameter] public EventCallback<string?> ClassChanged { get; set; }
-    /// <summary>
-    /// Fires when canvas style changed
-    /// </summary>
-    [Parameter] public EventCallback<string?> StyleChanged { get; set; }
     #endregion
 
     #region Fields
@@ -125,6 +109,22 @@ public partial class BlazorCanvas : ComponentBase, IElement
 
     #region Event Callbacks
     /// <summary>
+    /// Fires when canvas container class changed.
+    /// </summary>
+    [Parameter] public EventCallback<string?> ContainerClassChanged { get; set; }
+    /// <summary>
+    /// Fires when canvas container style changed
+    /// </summary>
+    [Parameter] public EventCallback<string?> ContainerStyleChanged { get; set; }
+    /// <summary>
+    /// Fires when canvas class changed
+    /// </summary>
+    [Parameter] public EventCallback<string?> ClassChanged { get; set; }
+    /// <summary>
+    /// Fires when canvas style changed
+    /// </summary>
+    [Parameter] public EventCallback<string?> StyleChanged { get; set; }
+    /// <summary>
     /// The auxclick event is fired at an Element when a non-primary pointing device button (any mouse button other than the primary—usually leftmost—button) has been pressed and released both within the same element. Auxclick is fired after the mousedown and mouseup events have been fired, in that order.
     /// </summary>
     [Parameter] public EventCallback<PointerEventArgs> OnAuxClick { get; set; }
@@ -138,6 +138,34 @@ public partial class BlazorCanvas : ComponentBase, IElement
     /// The event is a device-independent event — meaning it can be activated by touch, keyboard, mouse, and any other mechanism provided by assistive technology.
     /// </summary>
     [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+    /// <summary>
+    /// The drag event is fired every few hundred milliseconds as an element or text selection is being dragged by the user.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDrag { get; set; }
+    /// <summary>
+    /// The dragend event is fired when a drag operation ends (by releasing a mouse button or hitting the escape key).
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragEnd { get; set; }
+    /// <summary>
+    /// The dragenter event is fired when a dragged element or text selection enters a valid drop target. The target object is the immediate user selection (the element directly indicated by the user as the drop target), or the <body> element.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragEnter { get; set; }
+    /// <summary>
+    /// The dragleave event is fired when a dragged element or text selection leaves a valid drop target.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragLeave { get; set; }
+    /// <summary>
+    /// The dragover event is fired when an element or text selection is being dragged over a valid drop target (every few hundred milliseconds).
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragOver { get; set; }
+    /// <summary>
+    /// The dragstart event is fired when the user starts dragging an element or text selection.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDragStart { get; set; }
+    /// <summary>
+    /// The drop event is fired when an element or text selection is dropped on a valid drop target. To ensure that the drop event always fires as expected, you should always include a preventDefault() call in the part of your code which handles the dragover event.
+    /// </summary>
+    [Parameter] public EventCallback<DragEventArgs> OnContainerDrop { get; set; }
     /// <summary>
     /// The contextmenu event fires when the user attempts to open a context menu. This event is typically triggered by clicking the right mouse button, or by pressing the context menu key. In the latter case, the context menu is displayed at the bottom left of the focused element, unless the element is a tree, in which case the context menu is displayed at the bottom left of the current row. Any right-click event that is not disabled (by calling the click event's preventDefault() method) will result in a contextmenu event being fired at the targeted element.
     /// </summary>

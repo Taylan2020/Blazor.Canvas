@@ -3,11 +3,11 @@
 ## Installation
 Package Manager
 ```
-Install-Package Blazor.Canvas -Version 4.0
+Install-Package Blazor.Canvas -Version 4.1
 ```
 or .net CLI
 ```
-dotnet add package Blazor.Canvas --version 4.0
+dotnet add package Blazor.Canvas --version 4.1
 ```
 ### Javascript
 Embed JS-file to the body section of your page
@@ -21,12 +21,23 @@ and initialize the library after your component has rendered.
 @using Blazor.Canvas.Components
 
 <BlazorCanvas @ref="Canvas" InitialWidth="600" InitialHeight="600" Id="testCanvas" Style="border: 1px solid black;"
+              
               @bind-ContainerStyle="CustomCanvasContainerStyle" ContainerClass="myclass" ContainerId="MyContainer"
-              OnMouseDown="OnMouseDown" OnMouseUp="OnMouseUp" OnMouseMove="OnMouseMove" OnMouseOut="OnMouseOut" OnMouseOver="OnMouseOver"
-              OnMouseWheel="OnMouseWheel" OnClick="OnClick" OnDoubleClick="OnDoubleClick" OnBlur="OnBlur" OnScroll="OnScroll"
-              OnKeyDown="OnKeyDown" OnKeyPress="OnKeyPress" OnKeyUp="OnKeyUp" OnWheel="OnWheel" OnContextMenu="OnContextMenu"
+
+              OnContainerDrag="OnDrag" OnContainerDragStart="OnDragStart" OnContainerDragOver="OnDragOver"
+              OnContainerDragEnd="OnDragEnd" OnContainerDrop="OnDrop" OnContainerDragEnter="OnDragEnter"
+              OnContainerDragLeave="OnDragLeave" 
+              
+              OnMouseDown="OnMouseDown" OnMouseUp="OnMouseUp"
+              OnMouseMove="OnMouseMove" OnMouseOut="OnMouseOut" OnMouseOver="OnMouseOver"
+              OnMouseWheel="OnMouseWheel" OnClick="OnClick" OnDoubleClick="OnDoubleClick"
+
+              OnKeyDown="OnKeyDown" OnKeyPress="OnKeyPress" OnKeyUp="OnKeyUp"
+
+              OnBlur="OnBlur" OnScroll="OnScroll" OnWheel="OnWheel" OnContextMenu="OnContextMenu"
+
               OnTouchStart="OnTouchStart" OnTouchMove="OnTouchMove" OnTouchEnd="OnTouchEnd" OnAuxClick="OnAuxClick"
-              OnFocus="OnFocus" OnFocusIn="OnFocusIn" OnFocusOut="OnFocusOut" OnScrollEnd="OnScrollEnd" />
+              OnFocus="OnFocus" OnFocusIn="OnFocusIn" OnFocusOut="OnFocusOut" OnScrollEnd="OnScrollEnd"/>
 
 @code{
   using Blazor.Canvas.Components;
@@ -75,6 +86,13 @@ and initialize the library after your component has rendered.
   public async Task OnTouchMove(TouchEventArgs args) {await Task.CompletedTask;}
   public async Task OnTouchEnd(TouchEventArgs args) {await Task.CompletedTask; }
   public async Task OnTouchCancel(TouchEventArgs args) {await Task.CompletedTask; }
+  public async Task OnDrag(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragEnd(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragEnter(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragLeave(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragOver(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDragStart(DragEventArgs args) { await Task.CompletedTask; }
+  public async Task OnDrop(DragEventArgs args) { await Task.CompletedTask; }
 }
 ```
 ## Usage
